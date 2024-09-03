@@ -1,21 +1,21 @@
 export interface Character {
   id: number;
   name: string;
-  status: 'Alive' | 'Dead' | 'unknown';
-  species: string;
-  type: string;
-  gender: 'Female' | 'Male' | 'Genderless' | 'unknown';
-  origin: {
+  status?: 'Alive' | 'Dead' | 'unknown';
+  species?: string;
+  type?: string;
+  gender?: 'Female' | 'Male' | 'Genderless' | 'unknown';
+  origin?: {
     name: string;
     url: string;
   };
-  location: {
+  location?: {
     name: string;
     url: string;
   };
-  image: string;
-  episode: string[];
-  created: string;
+  image?: string;
+  episode?: string[];
+  created?: string;
 }
 
 export interface CharactersResponse {
