@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from 'app/store';
-import Card from '../../entities/Card/ui/Card';
+import { CardInfo } from '../../entities';
 
 const CharacterDetailPage: React.FC = () => {
   const { id = '0' } = useParams<{ id: string }>();
@@ -15,8 +15,8 @@ const CharacterDetailPage: React.FC = () => {
   }
 
   return (
-    <div>
-      <Card
+    <div className="character-detail-card">
+      <CardInfo
         id={character.id}
         name={character.name}
         status={character.status}
@@ -25,6 +25,7 @@ const CharacterDetailPage: React.FC = () => {
         gender={character.gender}
         image={character.image}
         episode={character.episode}
+        location={character.location}
       />
     </div>
   );

@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setCharacters } from '../../entities/Card/model/characterSlice';
-import { Character } from '../../entities/Card/model/types';
+import { useNavigate } from 'react-router-dom';
+import { CardMain, setCharacters, Character } from '../../entities/index';
 import { useFetchCardsQuery } from '../../shared/api/apiSlice';
-import Card from '../../entities/Card/ui/Card';
 import styles from './HomePage.module.css';
 
 export const HomePage = (): JSX.Element => {
   const dispatch = useDispatch();
+
   const { data, error, isLoading } = useFetchCardsQuery();
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (data) {
       dispatch(setCharacters(data.results));
@@ -18,19 +20,19 @@ export const HomePage = (): JSX.Element => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error occurred: {error.toString()}</div>;
 
+  const handleCardClick = (id: number): void => {
+    navigate(`/character/${id}`);
+  };
   return (
-    <section
-      className={styles.mainSection}
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        flexWrap: 'wrap',
-        gap: '2 rem',
-      }}
-    >
+    <section className={styles.mainSection}>
       {data?.results.map((card: Character) => (
-        <Card key={card.id} id={card.id} name={card.name} image={card.image} />
+        <button
+          key={card.id}
+          className="card"
+          onClick={() => handleCardClick(card.id)}
+        >
+          <CardMain id={card.id} name={card.name} image={card.image} />
+        </button>
       ))}
     </section>
   );
