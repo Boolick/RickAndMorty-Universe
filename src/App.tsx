@@ -8,7 +8,7 @@ import { store } from './app/index';
 export const App = (): JSX.Element => {
   return (
     <Provider store={store}>
-      <Router>
+      <Router basename="/Boolick">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/character/:id" element={<CharacterDetailPage />} />
