@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from 'app/store';
+import { RootState } from '../../app/index';
 import { CardInfo } from '../../entities';
 
 const CharacterDetailPage: React.FC = () => {
