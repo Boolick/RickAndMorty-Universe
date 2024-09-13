@@ -3,10 +3,12 @@ import { Character } from './types';
 
 interface CharactersState {
   characters: Character[];
+  deletedIds: number[];
 }
 
 const initialState: CharactersState = {
   characters: [],
+  deletedIds: JSON.parse(localStorage.getItem('deletedIds') || '[]'),
 };
 
 export const charactersSlice = createSlice({
@@ -14,17 +16,15 @@ export const charactersSlice = createSlice({
   initialState,
   reducers: {
     setCharacters(state, action: PayloadAction<Character[]>) {
-      state.characters = action.payload;
+      state.characters = action.payload.filter(
+        (character) => !state.deletedIds.includes(character.id),
+      );
     },
     addCharacter(state, action: PayloadAction<Character>) {
       state.characters.push(action.payload);
     },
-    clearCharacters(state) {
-      state.characters = [];
-    },
   },
 });
 
-export const { setCharacters, addCharacter, clearCharacters } =
-  charactersSlice.actions;
+export const { setCharacters, addCharacter } = charactersSlice.actions;
 export default charactersSlice.reducer;

@@ -7,9 +7,23 @@
     padding: 1rem;
 }
 
+.card-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .card {
     border: 'none';
     background: 'none';
-    padding: 0;
+    padding: 10 px;
     text-align: 'left';
+}
+
+.button-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #1a1a1a;
+    
+
 }

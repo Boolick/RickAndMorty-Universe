@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { LikeButton } from '../../../../features';
 import styles from './CardInfo.module.css';
 
 interface CardInfoProps {
@@ -29,6 +31,12 @@ export const CardInfo = ({
 }: CardInfoProps): JSX.Element => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const navigate = useNavigate();
+
+  const handleGoBack = (): void => {
+    navigate(-1); // Вернуться на предыдущую страницу
+  };
+
   const toggleEpisodes = (): void => {
     setIsExpanded(!isExpanded);
   };
@@ -39,6 +47,12 @@ export const CardInfo = ({
         <div>
           <div className={styles.image}>
             {image && <img alt={`charachter: ${name}`} src={image}></img>}
+            <div className={styles.buttons}>
+              <button onClick={handleGoBack} className={styles.backButton}>
+                ⬅️ Back
+              </button>
+              <LikeButton id={id} />
+            </div>
           </div>
         </div>
         <div className={styles.info}>

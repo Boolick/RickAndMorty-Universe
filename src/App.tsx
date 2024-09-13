@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CharacterDetailPage from './pages/CharacterDetailPage/CharacterDetailPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import { HomePage } from './pages/HomePage/HomePage';
-import store from './app/store/index';
+import { store } from './app/index';
 
-function App(): JSX.Element {
+export const App = (): JSX.Element => {
   return (
     <Provider store={store}>
       <Router>
@@ -17,6 +17,6 @@ function App(): JSX.Element {
       </Router>
     </Provider>
   );
-}
+};
 
 export default App;

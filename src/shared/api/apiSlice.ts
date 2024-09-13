@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { CharactersResponse } from 'entities/Card/types';
+import { CharactersResponse } from '../../entities/Card/model/types';
 
 export const apiSlice = createApi({
   reducerPath: 'api',
