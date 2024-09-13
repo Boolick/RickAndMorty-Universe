@@ -8,7 +8,7 @@ import { store } from './app/index';
 export const App = (): JSX.Element => {
   return (
     <Provider store={store}>
-      <Router basename="/Boolick">
+      <Router basename="/RickAndMorty-Universe/">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/character/:id" element={<CharacterDetailPage />} />
