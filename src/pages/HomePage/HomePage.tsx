@@ -53,20 +53,24 @@ export const HomePage = (): JSX.Element => {
         onRestoreAll={handleRestoreAll}
       />
       <section className={styles.mainSection}>
-        {filteredCards?.map((card: Character) => (
-          <div key={card.id} className={styles.cardContainer}>
-            <button
-              className={styles.card}
-              onClick={() => handleCardClick(card.id)}
-            >
-              <CardMain id={card.id} name={card.name} image={card.image} />
-              <div className={styles.buttonBlock}>
-                <LikeButton id={card.id} />
-                <DeleteButton id={card.id} />
-              </div>
-            </button>
-          </div>
-        ))}
+        {filteredCards?.map((card: Character) => {
+          const isLiked = likedIds.includes(card.id);
+
+          return (
+            <div key={card.id} className={styles.cardContainer}>
+              <button
+                className={`${styles.card} ${isLiked ? styles.likedCard : ''}`}
+                onClick={() => handleCardClick(card.id)}
+              >
+                <CardMain id={card.id} name={card.name} image={card.image} />
+                <div className={styles.buttonBlock}>
+                  <LikeButton id={card.id} />
+                  <DeleteButton id={card.id} />
+                </div>
+              </button>
+            </div>
+          );
+        })}
       </section>
     </>
   );

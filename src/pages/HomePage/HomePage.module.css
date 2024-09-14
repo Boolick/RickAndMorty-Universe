@@ -18,12 +18,16 @@
     padding: 10 px;
     text-align: 'left';
 }
+.liked-card {
+    background: linear-gradient(135deg, #2886a8 0%, #bbcb40 25%, #00f5a0 50%, #00d1ff 75%, #bc00ff 100%);
+    transition: all 0.3s ease;
+  }
 
 .button-block {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #1a1a1a;
+    background-color: transparent;
     
 
 }

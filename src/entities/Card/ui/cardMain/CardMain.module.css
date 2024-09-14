@@ -30,3 +30,10 @@
     flex-direction: column;
     align-items: center;
 }
+
+.liked-card {
+    background: linear-gradient(135deg, #a1ffce 0%, #faffd1 25%, #00f5a0 50%, #00d1ff 75%, #bc00ff 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
