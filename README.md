@@ -1,50 +1,64 @@
-# React + TypeScript + Vite
+# Rick & Morty Universe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание проекта
 
-Currently, two official plugins are available:
+Это одностраничное приложение (SPA), созданное с использованием публичного API `Rick and Morty`, которое отображает список карточек персонажей. Данные карточек загружаются с API и сохраняются в Redux-хранилище. Приложение позволяет пользователю взаимодействовать с карточками, ставить "лайки", удалять карточки, а также фильтровать только залайканные карточки.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Функционал
 
-## Expanding the ESLint configuration
+- **Загрузка данных:** Данные персонажей загружаются с публичного API и сохраняются в Redux.
+- **Карточки персонажей:** Отображение карточек с изображением и именем персонажей известного мульт-сериала.
+- **Лайк:** Возможность лайкать персонажей. Залайканные карточки помечаются соответствующим цветом.
+- **Удаление:** Возможность удаления карточки персонажа.
+- **Фильтрация:** Кнопка фильтрации залайканных карточек. При активации показываются только залайканные карточки.
+ - **Восстановление удаленых карточек**: Пользователь может восстановить удаленные карточки персонажей.
+- **Переход на страницу персонажа:** При клике на карточку (кроме кнопок лайка и удаления) пользователь переходит на отдельную страницу персонажа с полным описанием. На этой странице также есть кнопка для возврата к списку карточек.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Технологический стек
 
-- Configure the top-level `parserOptions` property like this:
+- **TypeScript**
+- **CSS**
+- **React**
+- **Redux Toolkit (RTK Query)**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Инструкции по установке и запуску
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Требования:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Node.js** версии 18.20.1 или выше.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Шаги по установке:
+
+1. Клонируйте репозиторий:
+   `git clone https://github.com/Boolick/RickAndMorty-Universe.git`
+
+2. Перейдите в папку проекта:
+ `cd rick-morty-universe`
+3. Установите зависимости: 
+ `npm install`
+4. Запустите сервер:
+`npm run dev`
+
+Примечание: если после выполнения команды `$ npm install` возникнут ошибки, удалите папку `node_modules` и файл `package-lock.json`, затем выполните `$ npm install`.
+
+#### Описание доступных скриптов:
+`npm run dev` 
+Запускает приложение в режиме разработки. Откройте http://localhost:5173/ для просмотра в браузере. Страница автоматически перезагрузится при изменениях в коде. Также в консоли будут отображаться ошибки форматирования.
+
+`npm run build`
+Собирает приложение для продакшена в папку `/dist`. Приложение будет оптимизировано для наилучшей производительности.
+
+`npm run format`
+Форматирует код с помощью Prettier в соответствии с конфигурацией.
+
+`npm run lint`
+Запускает линтер ESLint для проверки кода по стандартам Airbnb.
+
+`npm run lint --fix`
+Запускает ESLint и автоматически исправляет найденные ошибки.
+
+Публичное API.
+Данные для карточек загружаются с публичного API: [Rick and Morty API](https://rickandmortyapi.com/)
+
+Автор:
+Александр Булло
